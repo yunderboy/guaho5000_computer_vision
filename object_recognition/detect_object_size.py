@@ -11,10 +11,9 @@ def midpoint(pt_a, pt_b):
     return ((pt_a[0] + pt_b[0]) * 0.5, (pt_a[1] + pt_b[1]) * 0.5)
 
 
-def detect_object_size(img_path, obj_width):
+def detect_object_size(image, obj_width):
 
     # load the image, convert it to greyscale, and blur it slightly
-    image = cv2.imread(img_path)
     gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
     gray = cv2.GaussianBlur(gray, (7, 7), 0)
 
@@ -107,7 +106,7 @@ def detect_object_size(img_path, obj_width):
         cv2.imshow("Image", orig)
         cv2.waitKey(0)
 
-    return
+    return orig
 
 if __name__ == '__main__':
     detect_object_size('./images/plate_test.png', 22.25)
